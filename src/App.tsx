@@ -3,6 +3,7 @@ import "./App.css";
 import { Shows } from "./components/Shows/Shows.tsx";
 import { useDebounce, useLocalStorage } from "usehooks-ts";
 import { tvMazeApi } from "./api.ts";
+import { useMemo } from "react";
 
 const QUERY_DEBOUNCE_MS = 300;
 
@@ -24,13 +25,25 @@ function App() {
   // `react-query` (https://tanstack.com/query/v3/) and `redux-toolkit`
   // (https://redux-toolkit.js.org/rtk-query/api/created-api/overview#api-slice-overview),
   // which has a builtin of the first.
-  const { data = [], error } = tvMazeApi.useSearchShows(debouncedQuery);
+  const { data: showsBase = [], error } =
+    tvMazeApi.useSearchShows(debouncedQuery);
+
+  // some data might be missing, resulting in nullable for `item.show`
+  const shows = useMemo(
+    () => showsBase.filter((item) => item.show),
+    [showsBase]
+  );
 
   return (
     <>
       <h1>The TV Series Database</h1>
-      <input type="search" placeholder="Search..." onChange={handleChange} />
-      {error ? <p>There is an error.</p> : <Shows data={data} />}
+      <input
+        type="search"
+        value={query}
+        onChange={handleChange}
+        placeholder="Search..."
+      />
+      {error ? <p>There is an error.</p> : <Shows data={shows} />}
     </>
   );
 }
