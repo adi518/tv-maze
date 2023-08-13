@@ -22,9 +22,18 @@ Things to notice when reviewing this file :)
   }
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   font-size: 1.375rem;
   font-weight: 500;
+}
+
+.genres {
+  margin-top: auto;
 }
 
 .imageContainer {

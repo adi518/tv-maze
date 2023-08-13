@@ -25,10 +25,10 @@ export function Show({
           <NoImage />
         )}
       </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className={styles.content}>
         <div className={styles.header}>{name}</div>
         {rating.average}
-        <div className="mt-auto">{genres.join(" | ")}</div>
+        <div className={styles.genres}>{genres.join(" | ")}</div>
       </div>
       <div className={styles.actions}>
         <IconButton onClick={() => onFavorite?.({ show, ...restProps })}>

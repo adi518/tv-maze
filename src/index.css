@@ -37,11 +37,6 @@ h2 {
   font-size: 1.375rem;
 }
 
-/* tailwind style utilities */
-.mt-auto {
-  margin-top: auto;
-}
-
 button {
   cursor: pointer;
 }
