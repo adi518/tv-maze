@@ -44,7 +44,7 @@ Things to notice when reviewing this file :)
 
   & img {
     width: inherit;
-    display: block; /* reset to avoid whitespace כ*/
+    display: block; /* reset to avoid whitespace */
     border-radius: inherit; /* fix radius when height is less than the expected default */
   }
 }
