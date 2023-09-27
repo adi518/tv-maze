@@ -1,6 +1,7 @@
 /* 
 Things to notice when reviewing this file :)
-- We keep a flat hierarchy to keep specificity as low as possible, resulting in better performance.
+- We keep a flat hierarchy to keep specificity as low as possible,
+  resulting in decoupled HTML/CSS and better performance.
 - We take content scale into account to avoid silly overflow/shrinkage bugs.
 - We use native CSS nesting (https://developer.chrome.com/articles/css-nesting/).
 */
