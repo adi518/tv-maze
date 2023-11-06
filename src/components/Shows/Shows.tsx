@@ -36,7 +36,7 @@ export function Shows({ data }: { data: IShowResult[] }) {
     <div className={styles.shows}>
       <div className={styles.card}>
         <h2>Search Results</h2>
-        {data.length > 0 ? (
+        {data.length ? (
           <ShowsList data={data} onFavorite={handleFavorite} />
         ) : (
           "No Results"
